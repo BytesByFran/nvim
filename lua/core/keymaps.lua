@@ -12,6 +12,9 @@ keymap.set("n", "<C-d>", "<C-d>zz") -- Scroll abajo centrado
 keymap.set("n", "<C-u>", "<C-u>zz") -- Scroll arriba centrado
 keymap.set("n", "n", "nzzzv")       -- Buscar siguiente centrado
 keymap.set("n", "N", "Nzzzv")       -- Buscar anterior centrado
+keymap.set('n', 'm', '<C-d>')
+keymap.set('n', ',', '<C-u>')
+
 
 -- 3. Gestión de Ventanas
 keymap.set('n', '<S-h>', '<C-w>h', { desc = "Ventana Izquierda" })
@@ -37,7 +40,8 @@ keymap.set("n", "<leader>e", function() Snacks.explorer() end, { desc = "Explora
 keymap.set('n', '<leader>z', ':Focus<CR>', {})
 -- keymap.set("n", "<leader>z", function() Snacks.zen() end, { desc = "Modo Zen" })
 -- keymap.set("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Git (Lazygit)" })
-keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Cerrar Buffer" })
+keymap.set("n", "<leader>b", function() Snacks.picker.buffers() end, { desc = "Buffers" })
+-- keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "Cerrar Buffer" })
 keymap.set("n", "<leader>f", function() Snacks.picker.files() end, { desc = "Buscar Archivos" })
 keymap.set("n", "<leader>g", function() Snacks.picker.grep()end, { desc = "Buscar Texto (Grep)" })
 keymap.set("n", "<leader>un", function() Snacks.notifier.show_history() end, { desc = "Historial de Notificaciones" })
