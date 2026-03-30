@@ -1,7 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
-    opts = { ensure_installed = { "basedpyright", "ruff", "stylua" } },
+    opts = { ensure_installed = { "pylsp", "ruff", "stylua" } },
     config = true,
   },
   {
@@ -11,28 +11,14 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local lspconfig = require("lspconfig")
-      
-      vim.lsp.config('basedpyright',{
-        settings = {
-          basedpyright = {
-            analysis = {
-              typeCheckingMode = "basic",
-              reportCyclicImport = false,
-              autoSearchPaths = true,
-              useLibraryCodeForTypes = true,
-              reportUnknownVariable = true,
-              reportUnknownVariableType = true,
-              openFilesOnly= true
-            },
-          },
-        },
-      })
+      --local lspconfig = require("lspconfig")
+      vim.lsp.config('pylsp', {})
 
       -- Teclas de acceso rápido (LSP)
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "LSP: Información" })
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "LSP: Ir a definición" })
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "LSP: Acciones" })
+      vim.keymap.set('n', '<leader>tr', vim.lsp.buf.references, { desc = "LSP: Referencias" })
       vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = "LSP: Renombrar" })
       vim.keymap.set('n', '<leader>n', vim.diagnostic.goto_next, { desc = "LSP: Siguiente diagnóstico" })
       
