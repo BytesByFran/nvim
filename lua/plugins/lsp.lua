@@ -13,6 +13,10 @@ return {
     config = function()
       --local lspconfig = require("lspconfig")
       vim.lsp.config('pylsp', {})
+      vim.lsp.config('ruff', {})
+
+      vim.lsp.enable('pylsp')
+      vim.lsp.enable('ruff')
 
       -- Teclas de acceso rápido (LSP)
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "LSP: Información" })
