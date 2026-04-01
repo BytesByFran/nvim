@@ -13,7 +13,15 @@ return {
     config = function()
       --local lspconfig = require("lspconfig")
       vim.lsp.config('pylsp', {})
-      vim.lsp.config('ruff', {})
+      vim.lsp.config('ruff', {
+            init_options = {
+                settings = {
+                    organizeImports = false,
+                },
+            },
+
+
+            })
 
       vim.lsp.enable('pylsp')
       vim.lsp.enable('ruff')
