@@ -19,26 +19,6 @@ return {
 				dim = false,
 			},
 		},
-		picker = {
-			sources = {
-				files = {
-					exclude = {
-						"*.json",
-						"*.pyc",
-						"__pycache__",
-						".git",
-						"*.png",
-						"*.jpg",
-						"*.csv",
-						"*.xlsx",
-						"*.docx",
-						"migrations/",
-						"media/",
-					},
-				},
-			},
-		},
-
 		styles = {
 			zen = {
 				backdrop = { transparent = false },
@@ -52,5 +32,6 @@ return {
 		dim = { enabled = false },
 		image = { enabled = false },
 		profiler = { enabled = false },
+		picker = { enabled = false },
 	},
 }
