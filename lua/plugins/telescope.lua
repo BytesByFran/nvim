@@ -7,6 +7,20 @@ return {
 	},
 
 	config = function()
+		local actions = require("telescope.actions")
+
+		require("telescope").setup({
+			defaults = {
+				mappings = {
+					i = {
+						["<C-q>"] = actions.send_to_qflist + actions.close,
+					},
+					n = {
+						["<C-q>"] = actions.send_to_qflist + actions.close,
+					},
+				},
+			},
+		})
 		require("telescope").load_extension("fzf")
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>f", builtin.git_files, { desc = "Telescope find files" })
