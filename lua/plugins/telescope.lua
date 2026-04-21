@@ -11,12 +11,40 @@ return {
 
 		require("telescope").setup({
 			defaults = {
+				file_ignore_patterns = {
+					"%.json",
+					"node_modules",
+					".git/",
+					"target/",
+					"%.lock",
+					"%.jpg",
+					"%.png",
+					"%.svg",
+					"%.mp4",
+					"%.mp3",
+					"%.webp",
+					"%.min.",
+					"%.ico",
+					"__init__.py",
+					"CACHE",
+					"dist",
+					"%.bin",
+				},
 				mappings = {
 					i = {
-						["<C-q>"] = actions.send_to_qflist + actions.close,
+						-- ["<C-q>"] = actions.send_to_qflist + actions.close,
+						["<C-q>"] = actions.smart_send_to_qflist,
+						["<C-j>"] = actions.move_selection_next,
+						["<C-k>"] = actions.move_selection_previous,
+						["<C-c>"] = actions.close,
+						["<CR>"] = actions.select_default,
+						["<C-u>"] = actions.preview_scrolling_up,
+						["<C-d>"] = actions.preview_scrolling_down,
+						--["<C-q>"] = actions.smart_send_to_qflist,
 					},
 					n = {
-						["<C-q>"] = actions.send_to_qflist + actions.close,
+						-- ["<C-q>"] = actions.send_to_qflist + actions.close,
+						["<C-q>"] = actions.smart_send_to_qflist,
 					},
 				},
 			},
@@ -30,6 +58,7 @@ return {
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 		vim.keymap.set("n", "<leader>tw", builtin.lsp_dynamic_workspace_symbols, {})
 		vim.keymap.set("n", "<leader>ts", builtin.lsp_document_symbols, {})
+		vim.keymap.set("n", "<leader>tr", builtin.lsp_references, {})
 		vim.keymap.set("n", "<leader>tc", builtin.colorscheme, {})
 		vim.keymap.set("n", "<leader>th", builtin.help_tags, {})
 		vim.keymap.set("n", "<leader>tr", builtin.lsp_references, {})

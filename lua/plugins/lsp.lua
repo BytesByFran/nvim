@@ -29,7 +29,7 @@ return {
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "LSP: Ir a definición" })
 			vim.keymap.set("n", "<leader>o", vim.lsp.buf.hover, { desc = "LSP: Información" })
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Acciones" })
-			vim.keymap.set("n", "<leader>tr", vim.lsp.buf.references, { desc = "LSP: Referencias" })
+			-- vim.keymap.set("n", "<leader>tr", vim.lsp.buf.references, { desc = "LSP: Referencias" })
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Renombrar" })
 			vim.keymap.set("n", "<leader>n", vim.diagnostic.goto_next, { desc = "LSP: Siguiente diagnóstico" })
 		end,
